@@ -16,12 +16,13 @@ const iconStyle = {
 
 const dotStyle = {
   'backgroundColor': 'black',
-  'position': 'absolute',
-  'top': '-10px',
-  'left': 'calc(50% + 20px)',
+  // 'position': 'absolute',
+  // 'top': '-10px',
+  // 'left': 'calc(50% + 20px)',
   'width': '8px',
   'height': '8px',
-  'borderRadius': '50%'
+  'borderRadius': '50%',
+  'margin-top': '15px'
   //
   // @for $i from 2 through 15 {
   //   &:nth-of-type(#{$i}) {
@@ -65,8 +66,10 @@ const Emotion = ({ emoji }) => {
 
   return (
     <button onClick={handleClick} style={iconStyle} tabIndex="0">
-      <div style={{ position: 'absolute', top: '-24px' }}>
+      <div style={{ position: 'absolute', bottom: '100px', left: '50%' }}>
         { ticks }
+      </div>
+      <div style={{ position: 'absolute', bottom: '100px', left: 'calc(50% + 30px)' }}>
         { dots }
       </div>
       { emoji }
