@@ -16,32 +16,16 @@ const iconStyle = {
 
 const dotStyle = {
   'backgroundColor': 'black',
-  // 'position': 'absolute',
-  // 'top': '-10px',
-  // 'left': 'calc(50% + 20px)',
   'width': '8px',
   'height': '8px',
   'borderRadius': '50%',
-  'margin-top': '15px'
-  //
-  // @for $i from 2 through 15 {
-  //   &:nth-of-type(#{$i}) {
-  //     top: (-20px * $i) - (-10px);
-  //   }
-  // }
+  'marginTop': '15px'
 }
 
 const tickStyle = {
   'fontSize': '24px',
   'position': 'relative',
   'lineHeight': '24px',
-  // 'top': '-70px',
-  // 'left': 'calc(50% - 10px)'
-  // @for $i from 2 through 15 {
-  //   &:nth-of-type(#{$i}) {
-  //     top: (-20px * $i) + -50px;
-  //   }
-  // }
 }
 
 const Dot = () => (
