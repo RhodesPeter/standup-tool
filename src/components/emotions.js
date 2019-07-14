@@ -9,7 +9,7 @@ const emotionsStyle = {
   'display': 'flex',
   'justifyContent': 'center',
   'margin': '0 auto',
-  'minHeight': 'calc(100vh - 220px)',
+  'minHeight': 'calc(100vh - 250px)',
   'fontSize': '100px',
   'flexWrap': 'wrap'
 };

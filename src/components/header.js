@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import Burger from "./burger"
 
 // Should this be in a helpers file?
 const getWeekDay = () => {
@@ -13,31 +14,28 @@ const getWeekDay = () => {
   return weekdays[date];
 }
 
+const headerWrapperStyle = {
+  margin: `0 auto`,
+  maxWidth: 'none', // Might want to add 1100 back at some point
+  padding: `1.45rem 1.0875rem`,
+  display: 'flex',
+  justifyContent: 'space-between'
+};
+
+const linkStyle = {
+  color: '#A9A9A9',
+  textDecoration: 'none'
+};
+
 const Header = () => (
-  <header
-    style={{
-      background: `white`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 1100,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
+  <header style={{ background: `white`, marginBottom: `1.45rem`}}>
+    <div style={headerWrapperStyle}>
       <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `black`,
-            textDecoration: `none`,
-          }}
-        >
+        <Link to="/" style={linkStyle}>
           {getWeekDay()}
         </Link>
       </h1>
+      <Burger />
     </div>
   </header>
 )
