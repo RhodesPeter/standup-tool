@@ -14,21 +14,21 @@ const iconStyle = {
   'border': '0'
 };
 
-// const dotStyle = {
-//   'backgroundColor': 'black',
-//   'position': 'absolute',
-//   'top': '-10px',
-//   'left': 'calc(50% + 20px)',
-//   'width': '8px',
-//   'height': '8px',
-//   'borderRadius': '50%'
-//   //
-//   // @for $i from 2 through 15 {
-//   //   &:nth-of-type(#{$i}) {
-//   //     top: (-20px * $i) - (-10px);
-//   //   }
-//   // }
-// }
+const dotStyle = {
+  'backgroundColor': 'black',
+  'position': 'absolute',
+  'top': '-10px',
+  'left': 'calc(50% + 20px)',
+  'width': '8px',
+  'height': '8px',
+  'borderRadius': '50%'
+  //
+  // @for $i from 2 through 15 {
+  //   &:nth-of-type(#{$i}) {
+  //     top: (-20px * $i) - (-10px);
+  //   }
+  // }
+}
 
 const tickStyle = {
   'fontSize': '24px',
@@ -43,23 +43,31 @@ const tickStyle = {
   // }
 }
 
-// const Dot = () => (
-//   <div style={dotStyle}></div>
-// );
+const Dot = () => (
+  <div key={new Date().getTime()} style={dotStyle}></div>
+);
 
 const Tick = () => (
   <div key={new Date().getTime()} style={tickStyle}>✔︎</div>
 );
 
 const Emotion = ({ emoji }) => {
-  const [children, setChildren] = useState([]);
+  const [ticks, setTicks] = useState([]);
+  const [dots, setDots] = useState([]);
 
-  console.log(children);
+  const handleClick = (e) => {
+    if (e.altKey === false) {
+      setTicks(ticks.concat(Tick()))
+    } else {
+      setDots(dots.concat(Dot()))
+    }
+  };
 
   return (
-    <button onClick={() => { setChildren(children.concat(Tick())) }} style={iconStyle} tabIndex="0">
+    <button onClick={handleClick} style={iconStyle} tabIndex="0">
       <div style={{ position: 'absolute', top: '-24px' }}>
-        { children }
+        { ticks }
+        { dots }
       </div>
       { emoji }
     </button>
