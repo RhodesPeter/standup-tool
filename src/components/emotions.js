@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import React from "react"
+import Emotion from "./emotion"
 
 const options = ['💀', '😷', '😪', '😐', '🙂', '😃', '😜', '🦄'];
 
@@ -28,7 +29,7 @@ const iconStyle = {
 
 const Emotions = ({ siteTitle }) => (
   <div style={ emotionsStyle }>
-    { options.map((opt, i) => <button style={iconStyle} key={i} tabIndex="0">{opt}</button>) }
+    { options.map((opt, i) => <Emotion emoji={opt} key={i}/>) }
   </div>
 );
 
