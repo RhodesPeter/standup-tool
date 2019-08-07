@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import React from "react"
+import { useStaticQuery } from "gatsby"
 import Emotion from "./emotion"
 
 const options = ['💀', '😷', '😪', '😐', '🙂', '😃', '😜', '🦄'];
@@ -14,24 +15,24 @@ const emotionsStyle = {
   'flexWrap': 'wrap'
 };
 
-const iconStyle = {
-  'textAlign': 'center',
-  'width': '100px',
-  'height': '100px',
-  'margin': '16px',
-  'position': 'relative',
-  'userSelect': 'none',
-  'outline': 'none',
-  'lineHeight': '110px',
-  'backgroundColor': 'transparent',
-  'border': '0'
-};
+const Emotions = ({ siteTitle }) => {
+  const data = useStaticQuery(graphql`
+    query MyQuery {
+    gcms {
+      emotionses {
+        savedEmojis
+      }
+    }
+  }
+  `);
 
-const Emotions = ({ siteTitle }) => (
-  <div style={ emotionsStyle }>
-    { options.map((opt, i) => <Emotion emoji={opt} key={i}/>) }
-  </div>
-);
+  return (
+    <div style={ emotionsStyle }>
+      { options.map((opt, i) => <Emotion emoji={opt} key={i}/>) }
+      { console.log(data) }
+    </div>
+  );
+};
 
 Emotions.propTypes = {
   siteTitle: PropTypes.string,
