@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import sendEmotionsToDB from '../services/send-emotions-to-db';
+// import sendEmotionsToDB from '../services/send-emotions-to-db';
 
 const burger =  {
   'display': 'inline-block',
   'padding': '4px',
   'border': '2px solid transparent',
-  'outline': 'none'
+  'outline': 'none',
 }
 
 const burgerLayer = {
@@ -38,7 +38,8 @@ const navListStyling = {
   'right': '26px',
   'backgroundColor': '#ffea00',
   'margin': '8px 0',
-  'listStyle': 'none'
+  'listStyle': 'none',
+  'zIndex': '1'
 }
 
 const Burger = ({ location }) => {
@@ -52,6 +53,17 @@ const Burger = ({ location }) => {
     }
   };
 
+  // <li style={{ marginBottom: '24px' }}>
+  //   <button onClick={sendEmotionsToDB} style={navButtonStyle}>Save emotions</button>
+  // </li>
+
+  const links = [
+    { link: '/', text: 'Standard emotions', style: { marginBottom: '8px' } },
+    { link: '/explorify', text: 'Explorify emotions', style: { marginBottom: '8px' }},
+    { link: '/weather', text: 'Weather emotions', style: { marginBottom: '8px' }},
+    { link: '/random', text: 'Random emotions', style: { marginBottom: '0' }}
+  ]
+
   return (
     <div>
       <div onClick={handleClick} style={burger} tabIndex="0">
@@ -60,14 +72,11 @@ const Burger = ({ location }) => {
         ))}
       </div>
       <ul style={{ display: burgerOpen ? 'block' :'none', ...navListStyling }}>
-        <li style={{ marginBottom: '24px' }}>
-          <button onClick={sendEmotionsToDB} style={navButtonStyle}>Save emotions</button>
-        </li>
-        <li style={{ marginBottom: '0' }}>
-          <Link style={navButtonStyle} to={location.pathname === '/' ? '/explorify' : '/'}>
-            {location.pathname === '/' ? 'Explorify emotions' : 'Standard emotions'}
-          </Link>
-        </li>
+        {links.map(link => (
+          <li key={link.text} style={link.style}>
+            <Link style={navButtonStyle} to={link.link}>{link.text}</Link>
+          </li>
+        ))}
       </ul>
     </div>
   );
