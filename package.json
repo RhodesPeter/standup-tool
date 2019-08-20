@@ -1,9 +1,9 @@
 {
   "name": "gatsby-starter-default",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Emoji app for standup",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Peter Rhodes",
   "dependencies": {
     "gatsby": "^2.13.20",
     "gatsby-image": "^2.2.6",
@@ -12,6 +12,7 @@
     "gatsby-plugin-react-helmet": "^3.1.2",
     "gatsby-plugin-sharp": "^2.2.7",
     "gatsby-source-filesystem": "^2.1.5",
+    "gatsby-source-graphql": "^2.1.2",
     "gatsby-transformer-sharp": "^2.2.3",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",

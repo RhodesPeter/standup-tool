@@ -2,8 +2,6 @@ import PropTypes from "prop-types"
 import React from "react"
 import Emotion from "./emotion"
 
-const options = ['💀', '😷', '😪', '😐', '🙂', '😃', '😜', '🦄'];
-
 const emotionsStyle = {
   'alignItems': 'center',
   'display': 'flex',
@@ -14,27 +12,14 @@ const emotionsStyle = {
   'flexWrap': 'wrap'
 };
 
-const iconStyle = {
-  'textAlign': 'center',
-  'width': '100px',
-  'height': '100px',
-  'margin': '16px',
-  'position': 'relative',
-  'userSelect': 'none',
-  'outline': 'none',
-  'lineHeight': '110px',
-  'backgroundColor': 'transparent',
-  'border': '0'
-};
-
-const Emotions = ({ siteTitle }) => (
+const Emotions = ({ emojis }) => (
   <div style={ emotionsStyle }>
-    { options.map((opt, i) => <Emotion emoji={opt} key={i}/>) }
+    { emojis.map((opt, i) => <Emotion emoji={opt} key={i}/>) }
   </div>
 );
 
 Emotions.propTypes = {
-  siteTitle: PropTypes.string,
+  emojis: PropTypes.array,
 }
 
 export default Emotions

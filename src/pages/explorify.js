@@ -3,11 +3,11 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Emotions from "../components/emotions"
 
-const options = ['💀', '😷', '😪', '😐', '🙂', '😃', '😜', '🦄'];
+const options = ['😡', '😩', '😒', '🤷🏼‍', '😶', '😊', '😎', '🥨'];
 
 const IndexPage = ({ location }) => (
   <Layout location={location}>
-    <SEO title="Home" />
+    <SEO title="Explorify Special" />
     <Emotions emojis={options} />
   </Layout>
 )

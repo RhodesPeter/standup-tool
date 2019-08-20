@@ -1,25 +1,20 @@
-import PropTypes from "prop-types"
-import React, { useState } from "react"
+import PropTypes from "prop-types";
+import React, { useState } from "react";
+import { Link } from "gatsby";
+import sendEmotionsToDB from '../services/send-emotions-to-db';
 
 const burger =  {
   'display': 'inline-block',
   'padding': '4px',
   'border': '2px solid transparent',
   'outline': 'none'
-
-  // &:focus {
-  //   'outline': 'none',
-  // }
 }
 
 const burgerLayer = {
   'borderRadius': '8px',
   'width': '25px',
   'height': '3px',
-  'margin': '4px 0',
-  // .burger--active & {
-  //   background-color: grey;
-  // }
+  'margin': '4px 0'
 }
 
 const navButtonStyle = {
@@ -30,7 +25,10 @@ const navButtonStyle = {
   'fontSize': '1rem',
   'borderBottom': '2px solid black',
   'cursor': 'pointer',
-  'outline': 'none'
+  'outline': 'none',
+  'textDecoration': 'none',
+  'color': 'black',
+  'lineHeight': '1rem',
 };
 
 const navListStyling = {
@@ -40,16 +38,11 @@ const navListStyling = {
   'right': '26px',
   'backgroundColor': '#ffea00',
   'margin': '8px 0',
-  'listStyle': 'none',
+  'listStyle': 'none'
 }
 
-const Burger = ({ siteTitle }) => {
+const Burger = ({ location }) => {
   const [burgerOpen, setBurgerOpen] = useState(false);
-
-  // Closes when nav list clicked
-  // document.body.addEventListener('click', (e) => {
-  //   setBurgerOpen(false);
-  // });
 
   const handleClick = (e) => {
     if (burgerOpen) {
@@ -67,8 +60,13 @@ const Burger = ({ siteTitle }) => {
         ))}
       </div>
       <ul style={{ display: burgerOpen ? 'block' :'none', ...navListStyling }}>
-        <li style={{ marginBottom: '8px' }}>
-          <button style={navButtonStyle}>Save emotions</button>
+        <li style={{ marginBottom: '24px' }}>
+          <button onClick={sendEmotionsToDB} style={navButtonStyle}>Save emotions</button>
+        </li>
+        <li style={{ marginBottom: '0' }}>
+          <Link style={navButtonStyle} to={location.pathname === '/' ? '/explorify' : '/'}>
+            {location.pathname === '/' ? 'Explorify emotions' : 'Standard emotions'}
+          </Link>
         </li>
       </ul>
     </div>

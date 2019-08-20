@@ -27,7 +27,7 @@ const linkStyle = {
   textDecoration: 'none'
 };
 
-const Header = () => (
+const Header = ({ location }) => (
   <header style={{ background: `white`, marginBottom: `1.45rem`}}>
     <div style={headerWrapperStyle}>
       <h1 style={{ margin: 0 }}>
@@ -35,7 +35,7 @@ const Header = () => (
           {getWeekDay()}
         </Link>
       </h1>
-      <Burger />
+      <Burger location={location}/>
     </div>
   </header>
 )

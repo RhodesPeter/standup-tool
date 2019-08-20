@@ -20,13 +20,13 @@ const dotStyle = {
   'height': '8px',
   'borderRadius': '50%',
   'marginTop': '15px'
-}
+};
 
 const tickStyle = {
   'fontSize': '24px',
   'position': 'relative',
   'lineHeight': '24px',
-}
+};
 
 const Dot = () => (
   <div key={new Date().getTime()} style={dotStyle}></div>
